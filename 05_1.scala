@@ -4,12 +4,15 @@ object InventoryManagement {
 
   // Function to get the list of products from user input
   def getProductList: List[String] = {
-    def promptProducts(acc: List[String]): List[String] = {
-      val input = readLine("Enter product name (or type 'done' to finish): ")
-      if (input.toLowerCase == "done") acc
-      else promptProducts(acc :+ input)
+    var products = List.empty[String]
+    var input = ""
+    while(input.toLowerCase != "done"){
+        input = readLine("Enter product name(type done to finish): ")
+        if(input.toLowerCase != "done"){
+            products = products :+ input
+        }
     }
-    promptProducts(List.empty[String])
+    products
   }
 
   // Function to print the product list with positions
