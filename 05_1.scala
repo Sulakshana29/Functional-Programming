@@ -17,10 +17,11 @@ object InventoryManagement {
 
   // Function to print the product list with positions
   def printProductList(products: List[String]): Unit = {
-    products.zipWithIndex.foreach {
-      case (product, index) => println(s"${index + 1}. $product")
+        for(i <- products.indices){
+            println(s"${i+1}. ${products(i)}")
+        }
     }
-  }
+  
 
   // Function to get the total number of products
   def getTotalProducts(products: List[String]): Int = {
